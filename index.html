@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+   <!-- Lista de dados (seleção de item) -->
+    <label for="idFrutas">Frutas:</label><br>
+    <input list="idDataFrutas">
+    <input type='button' value= 'Gerar' id="gerarBtn">
+    <datalist id="idDataFrutas">
+    </datalist>
+
+    <script>
+
+        var frutas = ["tomate", "morango", "limão", "Abacaxi", "Pêra", "Uva"];  
+        let datalist = document.getElementById('idDataFrutas');
+
+        let gerarButton = document.getElementById('gerarBtn');
+        gerarButton.addEventListener('click', function(event) {
+            event.preventDefault();
+      
+            for ( let i = 0; i < frutas.length; i++){
+                let newFruit = document.createElement('option');
+                newFruit.innerText = frutas[i];
+                newFruit.id = [i];
+                datalist.appendChild(newFruit);      
+                }
+            /*
+            Outra forma de fazer: 
+            frutas.forEach(function(element, index){
+                let newFruit = document.createElement('option');
+                newFruit.innerText = element;
+                newFruit.id = index;
+                datalist.appendChild(newFruit);      
+                }
+            }
+             */
+            });
+
+
+    </script>
+  
+</body>
+</html>
